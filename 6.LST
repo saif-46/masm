@@ -1,0 +1,68 @@
+Microsoft (R) Macro Assembler Version 6.11		    10/07/18 11:14:43
+'Display CSTE DEPARTMENT 20 TIMES'			     Page 1 - 1
+
+
+				TITLE 'Display CSTE DEPARTMENT 20 TIMES'
+				.MODEL SMALL
+				.STACK 100H
+ 0000				.DATA
+ 0000 0D 0A 43 53 54 45		MSG DB 0DH,0AH,'CSTE,NSTU$'
+       2C 4E 53 54 55 24
+ 0000				.CODE
+ 0000				MAIN PROC
+
+ 0000  B8 ---- R			MOV AX,@DATA
+ 0003  8E D8				MOV DS,AX
+ 0005  B9 0014				MOV CX,20 ;counter 20
+ 0008  8D 16 0000 R			LEA DX,MSG
+ 000C  B4 09				MOV AH,9
+ 000E				 	TOP:
+ 000E  CD 21			 	INT 21H
+ 0010  E2 FC			 	  LOOP TOP
+
+ 0012  B4 4C				  MOV AH,4CH
+ 0014  CD 21				  INT 21H
+ 0016					  MAIN ENDP
+						END MAIN
+
+Microsoft (R) Macro Assembler Version 6.11		    10/07/18 11:14:43
+'Display CSTE DEPARTMENT 20 TIMES'			     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+DGROUP . . . . . . . . . . . . .	GROUP
+_DATA  . . . . . . . . . . . . .	16 Bit	 000C	  Word	  Public  'DATA'	
+STACK  . . . . . . . . . . . . .	16 Bit	 0100	  Para	  Stack	  'STACK'	 
+_TEXT  . . . . . . . . . . . . .	16 Bit	 0016	  Word	  Public  'CODE'	
+
+
+Procedures,  parameters and locals:
+
+                N a m e                 Type     Value    Attr
+
+MAIN . . . . . . . . . . . . . .	P Near	 0000	  _TEXT	Length= 0016 Private
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 0000h	 
+@DataSize  . . . . . . . . . . .	Number	 0000h	 
+@Interface . . . . . . . . . . .	Number	 0000h	 
+@Model . . . . . . . . . . . . .	Number	 0002h	 
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 DGROUP
+@fardata?  . . . . . . . . . . .	Text   	 FAR_BSS
+@fardata . . . . . . . . . . . .	Text   	 FAR_DATA
+@stack . . . . . . . . . . . . .	Text   	 DGROUP
+MSG  . . . . . . . . . . . . . .	Byte	 0000	  _DATA	
+TOP  . . . . . . . . . . . . . .	L Near	 000E	  _TEXT	
+
+	   0 Warnings
+	   0 Errors

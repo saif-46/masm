@@ -1,0 +1,64 @@
+Microsoft (R) Macro Assembler Version 6.11		    10/07/18 11:21:22
+'Display * 80 TIMES'					     Page 1 - 1
+
+
+				TITLE 'Display * 80 TIMES'
+				.MODEL SMALL
+				.STACK 100H
+ 0000				.DATA
+ 0000				.CODE
+ 0000				MAIN PROC
+
+ 0000  B9 0050				MOV CX,80 ;counter 80
+					
+ 0003  B4 02				MOV AH,2
+ 0005  B2 2A			        MOV DL,'*' 	
+ 0007				TOP:
+ 0007  CD 21			 	INT 21H
+ 0009  E2 FC			 	  LOOP TOP
+
+ 000B  B4 4C				  MOV AH,4CH
+ 000D  CD 21				  INT 21H
+ 000F					  MAIN ENDP
+						END MAIN
+
+Microsoft (R) Macro Assembler Version 6.11		    10/07/18 11:21:22
+'Display * 80 TIMES'					     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+DGROUP . . . . . . . . . . . . .	GROUP
+_DATA  . . . . . . . . . . . . .	16 Bit	 0000	  Word	  Public  'DATA'	
+STACK  . . . . . . . . . . . . .	16 Bit	 0100	  Para	  Stack	  'STACK'	 
+_TEXT  . . . . . . . . . . . . .	16 Bit	 000F	  Word	  Public  'CODE'	
+
+
+Procedures,  parameters and locals:
+
+                N a m e                 Type     Value    Attr
+
+MAIN . . . . . . . . . . . . . .	P Near	 0000	  _TEXT	Length= 000F Private
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 0000h	 
+@DataSize  . . . . . . . . . . .	Number	 0000h	 
+@Interface . . . . . . . . . . .	Number	 0000h	 
+@Model . . . . . . . . . . . . .	Number	 0002h	 
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 DGROUP
+@fardata?  . . . . . . . . . . .	Text   	 FAR_BSS
+@fardata . . . . . . . . . . . .	Text   	 FAR_DATA
+@stack . . . . . . . . . . . . .	Text   	 DGROUP
+TOP  . . . . . . . . . . . . . .	L Near	 0007	  _TEXT	
+
+	   0 Warnings
+	   0 Errors

@@ -1,0 +1,67 @@
+Microsoft (R) Macro Assembler Version 6.11		    10/07/18 11:28:36
+'list of charecter untill enter pressed'		     Page 1 - 1
+
+
+				TITLE 'list of charecter untill enter pressed'
+				.MODEL SMALL
+				.STACK 100H
+ 0000				.DATA
+ 0000				.CODE
+ 0000				MAIN PROC
+
+ 0000  B4 01				MOV AH,1
+ 0002					TOP_:
+ 0002  3C 0D				CMP AL, 0DH
+ 0004  74 04				JE ENDLOOP_
+
+ 0006  CD 21				INT 21H
+ 0008  E2 F8			 	LOOP TOP_
+
+ 000A					ENDLOOP_:
+
+ 000A  B4 4C				MOV AH,4CH
+ 000C  CD 21				INT 21H
+ 000E					MAIN ENDP
+					 	END MAIN
+
+Microsoft (R) Macro Assembler Version 6.11		    10/07/18 11:28:36
+'list of charecter untill enter pressed'		     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+DGROUP . . . . . . . . . . . . .	GROUP
+_DATA  . . . . . . . . . . . . .	16 Bit	 0000	  Word	  Public  'DATA'	
+STACK  . . . . . . . . . . . . .	16 Bit	 0100	  Para	  Stack	  'STACK'	 
+_TEXT  . . . . . . . . . . . . .	16 Bit	 000E	  Word	  Public  'CODE'	
+
+
+Procedures,  parameters and locals:
+
+                N a m e                 Type     Value    Attr
+
+MAIN . . . . . . . . . . . . . .	P Near	 0000	  _TEXT	Length= 000E Private
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 0000h	 
+@DataSize  . . . . . . . . . . .	Number	 0000h	 
+@Interface . . . . . . . . . . .	Number	 0000h	 
+@Model . . . . . . . . . . . . .	Number	 0002h	 
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 DGROUP
+@fardata?  . . . . . . . . . . .	Text   	 FAR_BSS
+@fardata . . . . . . . . . . . .	Text   	 FAR_DATA
+@stack . . . . . . . . . . . . .	Text   	 DGROUP
+ENDLOOP_ . . . . . . . . . . . .	L Near	 000A	  _TEXT	
+TOP_ . . . . . . . . . . . . . .	L Near	 0002	  _TEXT	
+
+	   0 Warnings
+	   0 Errors

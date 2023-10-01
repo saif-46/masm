@@ -1,0 +1,72 @@
+Microsoft (R) Macro Assembler Version 6.11		    10/07/18 11:08:43
+3 DISPLAY ONE LINE MESSAGE				     Page 1 - 1
+
+
+				TITLE 3 DISPLAY ONE LINE MESSAGE
+				.MODEL SMALL
+				.STACK 100H
+ 0000				.DATA
+ 0000 48 4F 57 20 41 52		MSG1 DB 'HOW ARE YOU CSTE 11 BATCH?$'
+       45 20 59 4F 55 20
+       43 53 54 45 20 31
+       31 20 42 41 54 43
+       48 3F 24
+ 001B 0D 0A 57 45 20 41		MSG2 DB 0DH,0AH,'WE ARE FINE$'
+       52 45 20 46 49 4E
+       45 24
+ 0000				.CODE
+ 0000					MAIN PROC
+ 0000  B8 ---- R			MOV AX,@DATA
+ 0003  8E D8				MOV DS,AX
+ 0005  8D 16 0000 R			LEA DX,MSG1
+ 0009  B4 09				MOV AH,9
+ 000B  CD 21				INT 21H
+ 000D  8D 16 001B R			LEA DX,MSG2
+ 0011  B4 09				MOV AH,9
+ 0013  CD 21				INT 21H
+ 0015  B4 4C				MOV AH,4CH
+ 0017  CD 21				INT 21H
+ 0019					MAIN ENDP
+						END MAIN
+
+Microsoft (R) Macro Assembler Version 6.11		    10/07/18 11:08:43
+3 DISPLAY ONE LINE MESSAGE				     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+DGROUP . . . . . . . . . . . . .	GROUP
+_DATA  . . . . . . . . . . . . .	16 Bit	 0029	  Word	  Public  'DATA'	
+STACK  . . . . . . . . . . . . .	16 Bit	 0100	  Para	  Stack	  'STACK'	 
+_TEXT  . . . . . . . . . . . . .	16 Bit	 0019	  Word	  Public  'CODE'	
+
+
+Procedures,  parameters and locals:
+
+                N a m e                 Type     Value    Attr
+
+MAIN . . . . . . . . . . . . . .	P Near	 0000	  _TEXT	Length= 0019 Private
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 0000h	 
+@DataSize  . . . . . . . . . . .	Number	 0000h	 
+@Interface . . . . . . . . . . .	Number	 0000h	 
+@Model . . . . . . . . . . . . .	Number	 0002h	 
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 DGROUP
+@fardata?  . . . . . . . . . . .	Text   	 FAR_BSS
+@fardata . . . . . . . . . . . .	Text   	 FAR_DATA
+@stack . . . . . . . . . . . . .	Text   	 DGROUP
+MSG1 . . . . . . . . . . . . . .	Byte	 0000	  _DATA	
+MSG2 . . . . . . . . . . . . . .	Byte	 001B	  _DATA	
+
+	   0 Warnings
+	   0 Errors

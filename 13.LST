@@ -1,0 +1,61 @@
+Microsoft (R) Macro Assembler Version 6.11		    10/07/18 11:32:03
+'Read a charecters untill breakline (space)'		     Page 1 - 1
+
+
+				TITLE 'Read a charecters untill breakline (space)'
+				.MODEL MEDIUM
+				.STACK 100H
+ 0000				.DATA
+ 0000				.CODE
+ 0000				MAIN PROC
+ 0000  B4 01				MOV AH,1
+ 0002				AGAIN:
+ 0002  CD 21				INT 21H
+ 0004  3C 20				CMP AL,' '
+ 0006  75 FA				JNE AGAIN
+					;JMP EXIT
+				;EXIT:
+ 0008  B4 4C			MOV AH,4CH
+ 000A  CD 21			INT 21H
+ 000C				MAIN ENDP
+				END MAIN
+Microsoft (R) Macro Assembler Version 6.11		    10/07/18 11:32:03
+'Read a charecters untill breakline (space)'		     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+13_TEXT  . . . . . . . . . . . .	16 Bit	 000C	  Word	  Public  'CODE'	
+DGROUP . . . . . . . . . . . . .	GROUP
+_DATA  . . . . . . . . . . . . .	16 Bit	 0000	  Word	  Public  'DATA'	
+STACK  . . . . . . . . . . . . .	16 Bit	 0100	  Para	  Stack	  'STACK'	 
+
+
+Procedures,  parameters and locals:
+
+                N a m e                 Type     Value    Attr
+
+MAIN . . . . . . . . . . . . . .	P Far	 0000	  13_TEXT	Length= 000C Private
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 0001h	 
+@DataSize  . . . . . . . . . . .	Number	 0000h	 
+@Interface . . . . . . . . . . .	Number	 0000h	 
+@Model . . . . . . . . . . . . .	Number	 0004h	 
+@code  . . . . . . . . . . . . .	Text   	 13_TEXT
+@data  . . . . . . . . . . . . .	Text   	 DGROUP
+@fardata?  . . . . . . . . . . .	Text   	 FAR_BSS
+@fardata . . . . . . . . . . . .	Text   	 FAR_DATA
+@stack . . . . . . . . . . . . .	Text   	 DGROUP
+AGAIN  . . . . . . . . . . . . .	L Near	 0002	  13_TEXT	
+
+	   0 Warnings
+	   0 Errors

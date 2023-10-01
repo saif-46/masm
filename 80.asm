@@ -1,0 +1,20 @@
+TITLE 'Display * 80 TIMES'
+.MODEL SMALL
+.STACK 100H
+.DATA
+.CODE
+MAIN PROC
+
+	MOV CX,80 ;counter 80
+	
+	MOV AH,2
+        MOV DL,'*' 	
+TOP:
+ 	INT 21H
+ 	  LOOP TOP
+
+	  MOV AH,4CH
+	  INT 21H
+	  MAIN ENDP
+		END MAIN
+
